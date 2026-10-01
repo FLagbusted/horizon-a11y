@@ -1,0 +1,462 @@
+{
+  "site": {
+    "brand": "Horizon patched",
+    "url": "https://accessibility-audits-and-fixes.myshopify.com/?preview_theme_id=191118704683",
+    "pages": [
+      "https://accessibility-audits-and-fixes.myshopify.com/?preview_theme_id=191118704683",
+      "https://accessibility-audits-and-fixes.myshopify.com/collections/all?preview_theme_id=191118704683",
+      "https://accessibility-audits-and-fixes.myshopify.com/products/double-wall-glass-coffee-mug?preview_theme_id=191118704683",
+      "https://accessibility-audits-and-fixes.myshopify.com/cart?preview_theme_id=191118704683"
+    ]
+  },
+  "scannedAt": "2026-10-01 14:07 UTC",
+  "isShopify": null,
+  "statement": null,
+  "pages": [
+    {
+      "label": "Home",
+      "url": "https://accessibility-audits-and-fixes.myshopify.com/?preview_theme_id=191118704683",
+      "ok": true,
+      "finalUrl": "https://accessibility-audits-and-fixes.myshopify.com/",
+      "title": "Accessibility audits and fixes",
+      "violations": [
+        {
+          "id": "frame-title",
+          "impact": "serious",
+          "help": "Frames must have an accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/frame-title?application=axeAPI",
+          "tags": [
+            "cat.text-alternatives",
+            "wcag2a",
+            "wcag412",
+            "section508",
+            "section508.22.i",
+            "TTv5",
+            "TT12.d",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-2.1.1"
+          ],
+          "nodes": [
+            {
+              "target": "#PBarNextFrame",
+              "html": "<iframe id=\"PBarNextFrame\" src=\"https://cdn.shopify....\" sandbox=\"allow-same-origin al...\" style=\"width: 100%; height:...\">",
+              "summary": "Fix any of the following:\n  Element has no title attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"none\" or r"
+            }
+          ]
+        },
+        {
+          "id": "scrollable-region-focusable",
+          "impact": "serious",
+          "help": "Scrollable region must have keyboard access",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axeAPI",
+          "tags": [
+            "cat.keyboard",
+            "wcag2a",
+            "wcag211",
+            "wcag213",
+            "TTv5",
+            "TT4.a",
+            "EN-301-549",
+            "EN-9.2.1.1",
+            "EN-9.2.1.3",
+            "RGAAv4",
+            "RGAA-7.3.2"
+          ],
+          "nodes": [
+            {
+              "target": "a[aria-label=\"Ceramic Mug\"][href$=\"ceramic-mug\"][ref=\"cardGalleryLink\"] > slideshow-component[in-viewport=\"\"][data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": "slideshow-component[data-generic-media-size=\"2\"][in-viewport=\"\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": ".card-gallery-AYXZicURyZjJ2Y2sxS__product_card_gallery_677WP3-2 > .contents[ref=\"cardGalleryLink\"] > slideshow-component[in-viewport=\"\"][data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": "a[aria-label=\"Chestnut Ceramic Mug\"][href$=\"chestnut-ceramic-mug\"][ref=\"cardGalleryLink\"] > slideshow-component[in-viewport=\"\"][data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            }
+          ]
+        }
+      ],
+      "incomplete": 2,
+      "passes": 29,
+      "extra": {
+        "overlay": null,
+        "skipLink": true,
+        "lang": "en",
+        "viewport": "width=device-width,initial-scale=1,viewport-fit=cover",
+        "images": 34,
+        "imagesNoAlt": 0
+      }
+    },
+    {
+      "label": "Page 2",
+      "url": "https://accessibility-audits-and-fixes.myshopify.com/collections/all?preview_theme_id=191118704683",
+      "ok": true,
+      "finalUrl": "https://accessibility-audits-and-fixes.myshopify.com/collections/all",
+      "title": "Products – Accessibility audits and fixes",
+      "violations": [
+        {
+          "id": "frame-title",
+          "impact": "serious",
+          "help": "Frames must have an accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/frame-title?application=axeAPI",
+          "tags": [
+            "cat.text-alternatives",
+            "wcag2a",
+            "wcag412",
+            "section508",
+            "section508.22.i",
+            "TTv5",
+            "TT12.d",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-2.1.1"
+          ],
+          "nodes": [
+            {
+              "target": "#PBarNextFrame",
+              "html": "<iframe id=\"PBarNextFrame\" src=\"https://cdn.shopify....\" sandbox=\"allow-same-origin al...\" style=\"width: 100%; height:...\">",
+              "summary": "Fix any of the following:\n  Element has no title attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"none\" or r"
+            }
+          ]
+        },
+        {
+          "id": "list",
+          "impact": "serious",
+          "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axeAPI",
+          "tags": [
+            "cat.structure",
+            "wcag2a",
+            "wcag131",
+            "EN-301-549",
+            "EN-9.1.3.1",
+            "RGAAv4",
+            "RGAA-9.3.1"
+          ],
+          "nodes": [
+            {
+              "target": ".facets__overflow-list,ul[part=\"list\"]",
+              "html": "<ul part=\"list\" style=\"height: 44px; flex-wrap: wrap; counter-reset: overflow-count 0; overflow: unset;\">",
+              "summary": "Fix all of the following:\n  List element has direct children that are not allowed: accordion-custom"
+            }
+          ]
+        },
+        {
+          "id": "scrollable-region-focusable",
+          "impact": "serious",
+          "help": "Scrollable region must have keyboard access",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axeAPI",
+          "tags": [
+            "cat.keyboard",
+            "wcag2a",
+            "wcag211",
+            "wcag213",
+            "TTv5",
+            "TT4.a",
+            "EN-301-549",
+            "EN-9.2.1.1",
+            "EN-9.2.1.3",
+            "RGAAv4",
+            "RGAA-7.3.2"
+          ],
+          "nodes": [
+            {
+              "target": "a[aria-label=\"Ceramic Mug\"][href$=\"ceramic-mug\"][ref=\"cardGalleryLink\"] > slideshow-component[in-viewport=\"\"][data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": "slideshow-component[data-generic-media-size=\"2\"][in-viewport=\"\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": ".card-gallery-AazNCWEt4MlFDdEZ4M__card-gallery-2 > .contents[ref=\"cardGalleryLink\"] > slideshow-component[in-viewport=\"\"][data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": "a[aria-label=\"Chestnut Ceramic Mug\"][href$=\"chestnut-ceramic-mug\"][ref=\"cardGalleryLink\"] > slideshow-component[in-viewport=\"\"][data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            }
+          ]
+        }
+      ],
+      "incomplete": 4,
+      "passes": 31,
+      "extra": {
+        "overlay": null,
+        "skipLink": true,
+        "lang": "en",
+        "viewport": "width=device-width,initial-scale=1,viewport-fit=cover",
+        "images": 34,
+        "imagesNoAlt": 0
+      }
+    },
+    {
+      "label": "Page 3",
+      "url": "https://accessibility-audits-and-fixes.myshopify.com/products/double-wall-glass-coffee-mug?preview_theme_id=191118704683",
+      "ok": true,
+      "finalUrl": "https://accessibility-audits-and-fixes.myshopify.com/products/double-wall-glass-coffee-mug",
+      "title": "Double Wall Glass Coffee Mug – Accessibility audits and fixes",
+      "violations": [
+        {
+          "id": "frame-title",
+          "impact": "serious",
+          "help": "Frames must have an accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/frame-title?application=axeAPI",
+          "tags": [
+            "cat.text-alternatives",
+            "wcag2a",
+            "wcag412",
+            "section508",
+            "section508.22.i",
+            "TTv5",
+            "TT12.d",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-2.1.1"
+          ],
+          "nodes": [
+            {
+              "target": "#PBarNextFrame",
+              "html": "<iframe id=\"PBarNextFrame\" src=\"https://cdn.shopify....\" sandbox=\"allow-same-origin al...\" style=\"width: 100%; height:...\">",
+              "summary": "Fix any of the following:\n  Element has no title attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"none\" or r"
+            }
+          ]
+        }
+      ],
+      "incomplete": 2,
+      "passes": 29,
+      "extra": {
+        "overlay": null,
+        "skipLink": true,
+        "lang": "en",
+        "viewport": "width=device-width,initial-scale=1,viewport-fit=cover",
+        "images": 27,
+        "imagesNoAlt": 0
+      }
+    },
+    {
+      "label": "Page 4",
+      "url": "https://accessibility-audits-and-fixes.myshopify.com/cart?preview_theme_id=191118704683",
+      "ok": true,
+      "finalUrl": "https://accessibility-audits-and-fixes.myshopify.com/cart",
+      "title": "Your Shopping Cart – Accessibility audits and fixes",
+      "violations": [
+        {
+          "id": "frame-title",
+          "impact": "serious",
+          "help": "Frames must have an accessible name",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/frame-title?application=axeAPI",
+          "tags": [
+            "cat.text-alternatives",
+            "wcag2a",
+            "wcag412",
+            "section508",
+            "section508.22.i",
+            "TTv5",
+            "TT12.d",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-2.1.1"
+          ],
+          "nodes": [
+            {
+              "target": "#PBarNextFrame",
+              "html": "<iframe id=\"PBarNextFrame\" src=\"https://cdn.shopify....\" sandbox=\"allow-same-origin al...\" style=\"width: 100%; height:...\">",
+              "summary": "Fix any of the following:\n  Element has no title attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"none\" or r"
+            }
+          ]
+        },
+        {
+          "id": "scrollable-region-focusable",
+          "impact": "serious",
+          "help": "Scrollable region must have keyboard access",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axeAPI",
+          "tags": [
+            "cat.keyboard",
+            "wcag2a",
+            "wcag211",
+            "wcag213",
+            "TTv5",
+            "TT4.a",
+            "EN-301-549",
+            "EN-9.2.1.1",
+            "EN-9.2.1.3",
+            "RGAAv4",
+            "RGAA-7.3.2"
+          ],
+          "nodes": [
+            {
+              "target": "a[aria-label=\"Ceramic Mug\"][ref=\"cardGalleryLink\"][href$=\"ceramic-mug\"] > slideshow-component[data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": "slideshow-component[data-generic-media-size=\"2\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": ".card-gallery-AeDVid3RUR3draCtuT__product_card_gallery_PEPpfq-2 > .contents[ref=\"cardGalleryLink\"] > slideshow-component[data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            },
+            {
+              "target": "a[aria-label=\"Chestnut Ceramic Mug\"][ref=\"cardGalleryLink\"][href$=\"chestnut-ceramic-mug\"] > slideshow-component[data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+              "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            }
+          ]
+        }
+      ],
+      "incomplete": 1,
+      "passes": 30,
+      "extra": {
+        "overlay": null,
+        "skipLink": true,
+        "lang": "en",
+        "viewport": "width=device-width,initial-scale=1,viewport-fit=cover",
+        "images": 25,
+        "imagesNoAlt": 0
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "scrollable-region-focusable",
+      "impact": "serious",
+      "help": "Scrollable region must have keyboard access",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axeAPI",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag211",
+        "wcag213",
+        "TTv5",
+        "TT4.a",
+        "EN-301-549",
+        "EN-9.2.1.1",
+        "EN-9.2.1.3",
+        "RGAAv4",
+        "RGAA-7.3.2"
+      ],
+      "count": 12,
+      "pages": [
+        "Home",
+        "Page 2",
+        "Page 4"
+      ],
+      "examples": [
+        {
+          "page": "Home",
+          "target": "a[aria-label=\"Ceramic Mug\"][href$=\"ceramic-mug\"][ref=\"cardGalleryLink\"] > slideshow-component[in-viewport=\"\"][data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+          "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+          "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+        },
+        {
+          "page": "Home",
+          "target": "slideshow-component[data-generic-media-size=\"2\"][in-viewport=\"\"] > slideshow-container > slideshow-slides",
+          "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+          "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+        },
+        {
+          "page": "Home",
+          "target": ".card-gallery-AYXZicURyZjJ2Y2sxS__product_card_gallery_677WP3-2 > .contents[ref=\"cardGalleryLink\"] > slideshow-component[in-viewport=\"\"][data-generic-media-size=\"3\"] > slideshow-container > slideshow-slides",
+          "html": "<slideshow-slides tabindex=\"-1\" ref=\"scroller\">",
+          "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+        }
+      ]
+    },
+    {
+      "id": "frame-title",
+      "impact": "serious",
+      "help": "Frames must have an accessible name",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/frame-title?application=axeAPI",
+      "tags": [
+        "cat.text-alternatives",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.i",
+        "TTv5",
+        "TT12.d",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-2.1.1"
+      ],
+      "count": 4,
+      "pages": [
+        "Home",
+        "Page 2",
+        "Page 3",
+        "Page 4"
+      ],
+      "examples": [
+        {
+          "page": "Home",
+          "target": "#PBarNextFrame",
+          "html": "<iframe id=\"PBarNextFrame\" src=\"https://cdn.shopify....\" sandbox=\"allow-same-origin al...\" style=\"width: 100%; height:...\">",
+          "summary": "Fix any of the following:\n  Element has no title attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"none\" or r"
+        },
+        {
+          "page": "Page 2",
+          "target": "#PBarNextFrame",
+          "html": "<iframe id=\"PBarNextFrame\" src=\"https://cdn.shopify....\" sandbox=\"allow-same-origin al...\" style=\"width: 100%; height:...\">",
+          "summary": "Fix any of the following:\n  Element has no title attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"none\" or r"
+        },
+        {
+          "page": "Page 3",
+          "target": "#PBarNextFrame",
+          "html": "<iframe id=\"PBarNextFrame\" src=\"https://cdn.shopify....\" sandbox=\"allow-same-origin al...\" style=\"width: 100%; height:...\">",
+          "summary": "Fix any of the following:\n  Element has no title attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element's default semantics were not overridden with role=\"none\" or r"
+        }
+      ]
+    },
+    {
+      "id": "list",
+      "impact": "serious",
+      "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/list?application=axeAPI",
+      "tags": [
+        "cat.structure",
+        "wcag2a",
+        "wcag131",
+        "EN-301-549",
+        "EN-9.1.3.1",
+        "RGAAv4",
+        "RGAA-9.3.1"
+      ],
+      "count": 1,
+      "pages": [
+        "Page 2"
+      ],
+      "examples": [
+        {
+          "page": "Page 2",
+          "target": ".facets__overflow-list,ul[part=\"list\"]",
+          "html": "<ul part=\"list\" style=\"height: 44px; flex-wrap: wrap; counter-reset: overflow-count 0; overflow: unset;\">",
+          "summary": "Fix all of the following:\n  List element has direct children that are not allowed: accordion-custom"
+        }
+      ]
+    }
+  ]
+}

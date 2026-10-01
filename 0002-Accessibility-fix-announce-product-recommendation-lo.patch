@@ -1,0 +1,52 @@
+From 774db58ad4b3db97b9dc85bc73a4a8bd0145a2b3 Mon Sep 17 00:00:00 2001
+From: Jatin <101skillshare@gmail.com>
+Date: Thu, 1 Oct 2026 13:13:44 +0000
+Subject: [PATCH] Accessibility fix: announce product-recommendation loading
+ once via role=status, hide skeleton placeholders
+
+---
+ blocks/product-recommendations.liquid   | 5 +++--
+ sections/product-recommendations.liquid | 4 +++-
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/blocks/product-recommendations.liquid b/blocks/product-recommendations.liquid
+index 8197da6..967c23d 100644
+--- a/blocks/product-recommendations.liquid
++++ b/blocks/product-recommendations.liquid
+@@ -169,11 +169,12 @@
+         </div>
+       {% endif %}
+     {%- else -%}
+-      <div class="resource-list resource-list--grid">
++      <div class="resource-list resource-list--grid" role="status">
++        <span class="visually-hidden">{{ 'accessibility.loading_product_recommendations' | t }}</span>
+         {% for i in (1..block_settings.max_products) %}
+           <div
+             class="resource-list__item product-recommendations__skeleton-item"
+-            aria-label="{{ 'accessibility.loading_product_recommendations' | t }}"
++            aria-hidden="true"
+           ></div>
+         {% endfor %}
+       </div>
+diff --git a/sections/product-recommendations.liquid b/sections/product-recommendations.liquid
+index d6ab246..b314c17 100644
+--- a/sections/product-recommendations.liquid
++++ b/sections/product-recommendations.liquid
+@@ -177,11 +177,13 @@
+     {%- else -%}
+       <div
+         class="resource-list resource-list--grid"
++        role="status"
+       >
++        <span class="visually-hidden">{{ 'accessibility.loading_product_recommendations' | t }}</span>
+         {% for i in (1..section.settings.columns) %}
+           <div
+             class="product-recommendations__skeleton-item"
+-            aria-label="{{ 'accessibility.loading_product_recommendations' | t }}"
++            aria-hidden="true"
+           ></div>
+         {% endfor %}
+       </div>
+-- 
+2.43.0
+

@@ -1,0 +1,244 @@
+From 26b063cd9fd4c163f68d8436a664df70784c23f7 Mon Sep 17 00:00:00 2001
+From: Jatin <101skillshare@gmail.com>
+Date: Thu, 1 Oct 2026 08:46:31 +0000
+Subject: [PATCH] Accessibility fixes: hero link name, rating role,
+ aria-current on slide controls, focusable product media scroller
+
+---
+ assets/slideshow.js                           |  5 ++++-
+ assets/zoom-dialog.js                         |  6 ++++--
+ blocks/review.liquid                          |  1 +
+ sections/hero.liquid                          | 13 +++++++++++++
+ snippets/product-media-gallery-content.liquid | 14 ++++++++------
+ snippets/slideshow-controls.liquid            | 10 +++++-----
+ snippets/slideshow.liquid                     |  9 ++++++++-
+ 7 files changed, 43 insertions(+), 15 deletions(-)
+
+diff --git a/assets/slideshow.js b/assets/slideshow.js
+index 9aa6608..30d7982 100644
+--- a/assets/slideshow.js
++++ b/assets/slideshow.js
+@@ -425,7 +425,10 @@ export class Slideshow extends Component {
+     if (current) current.textContent = `${value + 1}`;
+ 
+     for (const controls of [thumbnails, dots]) {
+-      controls?.forEach((el, i) => el.setAttribute('aria-selected', `${i === value}`));
++      controls?.forEach((el, i) => {
++        if (i === value) el.setAttribute('aria-current', 'true');
++        else el.removeAttribute('aria-current');
++      });
+     }
+ 
+     if (previous) previous.disabled = Boolean(!this.infinite && value === 0);
+diff --git a/assets/zoom-dialog.js b/assets/zoom-dialog.js
+index acdff63..a1497aa 100644
+--- a/assets/zoom-dialog.js
++++ b/assets/zoom-dialog.js
+@@ -126,7 +126,8 @@ export class ZoomDialog extends Component {
+     if (!targetThumbnail || !(targetThumbnail instanceof HTMLElement)) return;
+ 
+     Array.from(thumbnails.querySelectorAll('button')).forEach((button, i) => {
+-      button.setAttribute('aria-selected', `${i === activeIndex}`);
++      if (i === activeIndex) button.setAttribute('aria-current', 'true');
++      else button.removeAttribute('aria-current');
+     });
+ 
+     this.loadHighResolutionImage(mostVisibleElement);
+@@ -235,7 +236,8 @@ export class ZoomDialog extends Component {
+     if (!targetThumbnail || !(targetThumbnail instanceof HTMLElement)) return;
+ 
+     Array.from(thumbnails.querySelectorAll('button')).forEach((button, i) => {
+-      button.setAttribute('aria-selected', `${i === index}`);
++      if (i === index) button.setAttribute('aria-current', 'true');
++      else button.removeAttribute('aria-current');
+     });
+ 
+     scrollIntoView(targetThumbnail, {
+diff --git a/blocks/review.liquid b/blocks/review.liquid
+index d8e883e..9182aa2 100644
+--- a/blocks/review.liquid
++++ b/blocks/review.liquid
+@@ -67,6 +67,7 @@
+     </svg>
+     <div
+       class="rating"
++      role="img"
+       style="--star-size: calc(var(--font-{{ block_settings.type_preset }}--size) * 1.1);"
+       aria-label="{{ 'accessibility.rating' | t: rating: rating }}"
+     >
+diff --git a/sections/hero.liquid b/sections/hero.liquid
+index 44c5d96..f9709e1 100644
+--- a/sections/hero.liquid
++++ b/sections/hero.liquid
+@@ -512,6 +512,13 @@
+       <a
+         href="{{ section.settings.link }}"
+         class="hero__link"
++        {%- liquid
++          assign hero_link_label = section.settings.link_label
++          if hero_link_label == blank
++            assign hero_link_label = 'content.view_more_details' | t
++          endif
++        -%}
++        aria-label="{{ hero_link_label | escape }}"
+         {% if section.settings.open_in_new_tab %}
+           target="_blank" rel="noopener"
+         {% endif %}
+@@ -954,6 +961,12 @@
+       "id": "link",
+       "label": "t:settings.link"
+     },
++    {
++      "type": "text",
++      "id": "link_label",
++      "label": "Link label for screen readers",
++      "info": "Describes where the link goes, e.g. \"Shop the fall collection\". Used because this link has no visible text."
++    },
+     {
+       "type": "checkbox",
+       "id": "open_in_new_tab",
+diff --git a/snippets/product-media-gallery-content.liquid b/snippets/product-media-gallery-content.liquid
+index 20e8dca..376d6d7 100644
+--- a/snippets/product-media-gallery-content.liquid
++++ b/snippets/product-media-gallery-content.liquid
+@@ -445,6 +445,7 @@
+       {% endcapture %}
+     {% endif %}
+ 
++    {%- capture scroller_label -%}{{ 'accessibility.slideshow' | t }}: {{ selected_product.title }}{%- endcapture -%}
+     {% render 'slideshow',
+       ref: 'slideshow',
+       class: slideshow_class,
+@@ -453,7 +454,8 @@
+       slideshow_arrows: slideshow_arrows,
+       arrows_position: icons_position,
+       animate_arrows: animate_arrows,
+-      controls: controls
++      controls: controls,
++      scroller_label: scroller_label
+     %}
+ 
+     {% if media_presentation == 'grid' %}
+@@ -544,7 +546,7 @@
+                     on:pointerenter="/handleThumbnailPointerEnter/{{ forloop.index0 }}"
+                     style="--aspect-ratio: {{ aspect_ratio }}; --gallery-aspect-ratio: {{ aspect_ratio }};"
+                     {% if forloop.first %}
+-                      aria-selected="true"
++                      aria-current="true"
+                     {% endif %}
+                   >
+                     {% liquid
+@@ -726,7 +728,7 @@
+       aspect-ratio: var(--aspect-ratio);
+     }
+ 
+-    &:is([aria-selected='true']) {
++    &:is([aria-current='true']) {
+       outline: var(--focus-outline-width) solid currentcolor;
+       outline-offset: calc(var(--focus-outline-offset) / 2);
+       border: var(--style-border-width) solid var(--active-thumbnail-border-color);
+@@ -734,7 +736,7 @@
+   }
+ 
+   @supports (anchor-name: --test) {
+-    .dialog-thumbnails-list:has(.dialog-thumbnails-list__thumbnail:is([aria-selected='true']))::after {
++    .dialog-thumbnails-list:has(.dialog-thumbnails-list__thumbnail:is([aria-current='true']))::after {
+       --inset-offset: calc(var(--focus-outline-offset) / 2);
+ 
+       content: '';
+@@ -749,14 +751,14 @@
+     }
+ 
+     @media (prefers-reduced-motion: no-preference) {
+-      .dialog-thumbnails-list:has(.dialog-thumbnails-list__thumbnail:is([aria-selected='true']))::after {
++      .dialog-thumbnails-list:has(.dialog-thumbnails-list__thumbnail:is([aria-current='true']))::after {
+         transition-property: inset;
+         transition-duration: var(--spring-d180-b0-duration);
+         transition-timing-function: var(--spring-d180-b0-easing);
+       }
+     }
+ 
+-    .dialog-thumbnails-list__thumbnail:is([aria-selected='true']) {
++    .dialog-thumbnails-list__thumbnail:is([aria-current='true']) {
+       outline: none;
+       border: none;
+       anchor-name: --selected-thumbnail;
+diff --git a/snippets/slideshow-controls.liquid b/snippets/slideshow-controls.liquid
+index 17bdc73..3f677ff 100644
+--- a/snippets/slideshow-controls.liquid
++++ b/snippets/slideshow-controls.liquid
+@@ -114,7 +114,7 @@
+                 style="--aspect-ratio: {% if aspect_ratio == 'adapt' %}{{ media.preview_image.aspect_ratio | default: 1.0 }}{% else %}{{ aspect_ratio }}{% endif %};"
+                 ref="thumbnails[]"
+                 {% if forloop.first %}
+-                  aria-selected="true"
++                  aria-current="true"
+                 {% endif %}
+               >
+                 {% liquid
+@@ -167,7 +167,7 @@
+                 on:click="/select/{{ forloop.index0 }}"
+                 ref="dots[]"
+                 {% if forloop.first %}
+-                  aria-selected="true"
++                  aria-current="true"
+                 {% endif %}
+               >
+                 {{ forloop.index }}
+@@ -386,7 +386,7 @@
+         box-shadow: inset 0 0 0 1.5px hsl(0 0% 0% / 0.15);
+ 
+         @supports not (view-timeline-axis: inline) {
+-          &[aria-selected='true'] {
++          &[aria-current='true'] {
+             --color: var(--color-active);
+           }
+         }
+@@ -396,7 +396,7 @@
+         }
+       }
+ 
+-      &[aria-selected='true'] {
++      &[aria-current='true'] {
+         --color: var(--color-active);
+ 
+         &::after {
+@@ -465,7 +465,7 @@
+         border-radius: var(--thumbnail-radius, var(--media-radius));
+       }
+ 
+-      &:is([aria-selected='true']) {
++      &:is([aria-current='true']) {
+         outline: var(--focus-outline-width) solid currentcolor;
+         outline-offset: calc(var(--focus-outline-offset) / 2);
+         border: var(--style-border-width) solid rgb(var(--color-border-rgb) / var(--media-border-opacity));
+diff --git a/snippets/slideshow.liquid b/snippets/slideshow.liquid
+index d95622e..db87437 100644
+--- a/snippets/slideshow.liquid
++++ b/snippets/slideshow.liquid
+@@ -24,6 +24,7 @@
+   @param {string} [arrows_position] - The position of the arrows, defaults to 'bottom'
+   @param {string} [attributes] - Additional attributes to add to the slideshow component
+   @param {boolean} [header] - The title of the slideshow
++  @param {string} [scroller_label] - When set, the scroller becomes keyboard-focusable (tabindex 0) and is exposed as a labelled region. Do not use when the slideshow sits inside a link.
+ 
+   @example
+   {% render 'slideshow', slides: slides, slide_count: collection.products.size, ref: 'mobileSlideshow' %}
+@@ -115,7 +116,13 @@
+       {{ slideshow_arrows }}
+     {% endif %}
+     <slideshow-slides
+-      tabindex="-1"
++      {% if scroller_label != blank %}
++        tabindex="0"
++        role="region"
++        aria-label="{{ scroller_label | escape }}"
++      {% else %}
++        tabindex="-1"
++      {% endif %}
+       ref="scroller"
+       {% if slideshow_gutters %}
+         gutters="{{ slideshow_gutters }}"
+-- 
+2.43.0
+
